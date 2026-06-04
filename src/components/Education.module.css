@@ -1,0 +1,67 @@
+.education { background: var(--bg-primary); }
+
+.timeline {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 22px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--orange), transparent);
+  opacity: 0.4;
+}
+
+.item {
+  position: relative;
+  padding-left: 64px;
+  margin-bottom: 48px;
+}
+.item:last-child { margin-bottom: 0; }
+
+.dot {
+  position: absolute;
+  left: 14px; top: 20px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--gradient-main);
+  box-shadow: 0 0 0 4px var(--bg-primary), 0 0 16px rgba(245,166,35,0.4);
+  z-index: 1;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-card-hover); }
+
+.meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+.year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.current { background: rgba(74, 222, 128, 0.12); color: #4ade80; }
+.done { background: rgba(160, 160, 184, 0.1); color: var(--text-muted); }
+
+.title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; }
+.institution { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
+.desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
