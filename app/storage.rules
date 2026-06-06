@@ -1,0 +1,35 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // ── Profile photo & resume ──────────────────────────────────
+    // Public can READ (shown on the live portfolio)
+    // Only authenticated admin can WRITE / DELETE
+    match /profile/{fileName} {
+      allow read:             if true;
+      allow write, delete:    if request.auth != null;
+    }
+
+    // ── Project thumbnails ──────────────────────────────────────
+    // Public can READ
+    // Only authenticated admin can WRITE / DELETE
+    match /projects/{fileName} {
+      allow read:             if true;
+      allow write, delete:    if request.auth != null;
+    }
+
+    // ── Certification images ────────────────────────────────────
+    // Public can READ
+    // Only authenticated admin can WRITE / DELETE
+    match /certifications/{fileName} {
+      allow read:             if true;
+      allow write, delete:    if request.auth != null;
+    }
+
+    // Deny everything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+  }
+}

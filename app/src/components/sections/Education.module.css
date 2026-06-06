@@ -1,0 +1,49 @@
+.education { background: var(--bg-primary); position: relative; z-index: 1; }
+
+.timeline { display: flex; flex-direction: column; gap: 0; max-width: 800px; margin: 0 auto; }
+
+.item { display: flex; gap: 24px; }
+
+.line { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; padding-top: 4px; }
+.dot {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  box-shadow: 0 0 12px rgba(245,166,35,0.5);
+  flex-shrink: 0;
+}
+.connector { width: 2px; flex: 1; background: var(--border); margin-top: 8px; min-height: 40px; }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+  flex: 1;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-card-hover); }
+
+.cardTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.period {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+}
+.status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.current { background: rgba(74,222,128,0.1); color: var(--accent-green); border: 1px solid rgba(74,222,128,0.25); }
+.done    { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border); }
+
+.title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.inst  { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 10px; }
+.desc  { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+.tags  { display: flex; flex-wrap: wrap; gap: 6px; }

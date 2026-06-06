@@ -1,0 +1,348 @@
+/* ── Hero Section ─────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0 80px;
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,166,35,0.09) 0%, transparent 70%);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* ── Left: Text Content ───────────────────────────────── */
+.content { display: flex; flex-direction: column; gap: 24px; }
+
+.availBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.25);
+  border-radius: 50px;
+  padding: 6px 14px;
+  width: fit-content;
+}
+.availDot {
+  width: 8px; height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+.hi {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.headline {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.typewriter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.typewriterLabel { color: var(--text-muted); }
+.typewriterText {
+  color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+.cursor {
+  color: var(--gold);
+  animation: pulse 1s step-end infinite;
+  font-weight: 300;
+}
+
+.subhead {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.floatingBadges { display: flex; flex-wrap: wrap; gap: 10px; }
+.fBadge {
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 50px;
+  animation: float 3s ease-in-out infinite;
+  transition: border-color var(--transition), color var(--transition);
+}
+.fBadge:hover { border-color: var(--gold); color: var(--gold); }
+
+.stats {
+  display: flex;
+  gap: 32px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: fit-content;
+}
+.stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.statNum {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.04em;
+}
+.statLabel { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* ── Right: Profile Photo Frame ──────────────────────── */
+.photoSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 440px;
+}
+
+/* Glowing background blobs */
+.glow1 {
+  position: absolute;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: breathe 4s ease-in-out infinite;
+  pointer-events: none;
+}
+.glow2 {
+  position: absolute;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: breathe 4s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* Spinning dashed orbit ring */
+.orbitRing {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(245,166,35,0.25);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 18s linear infinite;
+  pointer-events: none;
+}
+
+/* Floating tech orbs */
+.orb {
+  position: absolute;
+  top: 50%; left: 50%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(245,166,35,0.1);
+  border: 1px solid rgba(245,166,35,0.3);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+  animation: float 3.5s ease-in-out infinite;
+  transition: background 0.2s;
+  pointer-events: none;
+}
+
+/* ── Photo Frame ──────────────────────────────────────── */
+.photoFrame {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  z-index: 2;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Outer glowing ring */
+.photoRingOuter {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #f5a623,
+    #ff6b35,
+    #f5a623 40%,
+    transparent 50%,
+    #f5a623 60%,
+    #ff6b35,
+    #f5a623
+  );
+  animation: spin 4s linear infinite;
+  filter: blur(1px);
+}
+
+/* Inner crisp ring border */
+.photoRingInner {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+}
+
+/* Photo itself */
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;
+}
+
+/* Placeholder when no photo */
+.photoPlaceholder {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(255,107,53,0.1));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  z-index: 1;
+}
+.placeholderInitials {
+  font-size: 4rem;
+  font-weight: 900;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.placeholderHint {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  max-width: 130px;
+}
+
+/* Name tag below photo */
+.nameTag {
+  position: absolute;
+  bottom: -52px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+.nameTagName {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.nameTagRole {
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Scroll Hint ──────────────────────────────────────── */
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  animation: float 2.5s ease-in-out infinite;
+}
+.scrollDot {
+  width: 20px; height: 30px;
+  border: 2px solid var(--border-hover);
+  border-radius: 10px;
+  position: relative;
+}
+.scrollDot::after {
+  content: '';
+  width: 4px; height: 6px;
+  background: var(--gold);
+  border-radius: 2px;
+  position: absolute;
+  top: 5px; left: 50%;
+  transform: translateX(-50%);
+  animation: float 1.5s ease-in-out infinite;
+}
+
+/* ── Animations ───────────────────────────────────────── */
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .inner { grid-template-columns: 1fr; }
+  .photoSection { height: 340px; order: -1; }
+  .photoFrame { width: 180px; height: 180px; }
+  .orbitRing { width: 250px; height: 250px; }
+}
+@media (max-width: 600px) {
+  .stats { gap: 20px; }
+  .ctas { flex-direction: column; }
+  .ctas a { width: 100%; justify-content: center; }
+  .photoSection { height: 300px; }
+  .photoFrame { width: 160px; height: 160px; }
+  .orb { display: none; }
+}

@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Portfolio data ──────────────────────────────────────────
+    // Public can READ (portfolio is public)
+    // Only authenticated admin can WRITE
+    match /portfolioData/{section} {
+      allow read:  if true;
+      allow write: if request.auth != null;
+    }
+
+    // ── Contact Messages ────────────────────────────────────────
+    // Anyone can CREATE (submit contact form)
+    // Only authenticated admin can READ and DELETE
+    match /contactMessages/{msgId} {
+      allow create: if true
+        && request.resource.data.keys().hasAll(['name', 'email', 'message'])
+        && request.resource.data.name is string
+        && request.resource.data.email is string
+        && request.resource.data.message is string;
+      allow read, delete: if request.auth != null;
+    }
+
+    // ── Meta / Stats ────────────────────────────────────────────
+    // Public read/write for page view counter
+    match /meta/{doc} {
+      allow read, write: if true;
+    }
+
+  }
+}
